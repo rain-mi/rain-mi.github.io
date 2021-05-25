@@ -20,28 +20,45 @@
     var CONFIG = {"hostname":"rainmi.love","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="RainMi&#39;s Notes">
-<meta property="og:url" content="http://rainmi.love/default-index/index.html">
+  <meta name="description" content="一.基础环境准备在linux服务器中安装git, maven配置git的公钥到你的github上，这些步骤是使用jenkins的前提。 推荐安装两个插件，在系统管理中可以安装插件：RebuilderSafe Restart 1.安装gityum install -y git 2.maven部署1&gt;. 安装jdkrpm -ivh jdk-8u201-linux-x64.rpm 12345678">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jenkins之二：使用">
+<meta property="og:url" content="http://rainmi.love/jenkins/jenkins%E4%B9%8B%E4%BA%8C%EF%BC%9A%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="RainMi&#39;s Notes">
+<meta property="og:description" content="一.基础环境准备在linux服务器中安装git, maven配置git的公钥到你的github上，这些步骤是使用jenkins的前提。 推荐安装两个插件，在系统管理中可以安装插件：RebuilderSafe Restart 1.安装gityum install -y git 2.maven部署1&gt;. 安装jdkrpm -ivh jdk-8u201-linux-x64.rpm 12345678">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/%E6%96%B0%E5%BB%BA%E8%8A%82%E7%82%B9.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/%E9%85%8D%E7%BD%AE%E8%8A%82%E7%82%B9.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/node%E8%8A%82%E7%82%B9%E7%8A%B6%E6%80%81.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/jenkins%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%81%E7%A8%8B.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/%E9%85%8D%E7%BD%AEgit.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/jenkins%E6%96%B0%E5%BB%BA%E4%BB%BB%E5%8A%A1.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/jenkins%E4%BB%BB%E5%8A%A1-%E9%80%89%E6%8B%A9%E8%8A%82%E7%82%B9.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/jenkins%E4%BB%BB%E5%8A%A1-%E9%85%8D%E7%BD%AEgit.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/jenkins%E4%BB%BB%E5%8A%A1-%E9%85%8D%E7%BD%AE%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/jenkins%E4%BB%BB%E5%8A%A1-%E6%9E%84%E5%BB%BA.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/jenkins%E4%BB%BB%E5%8A%A1-%E9%80%89%E6%8B%A9%E8%8A%82%E7%82%B9.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/jenkins%E6%9E%84%E5%BB%BA-%E6%B5%8B%E8%AF%95.png">
+<meta property="article:published_time" content="2021-05-24T03:50:34.000Z">
+<meta property="article:modified_time" content="2021-05-25T03:47:30.987Z">
 <meta property="article:author" content="Rain Mi">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/%E6%96%B0%E5%BB%BA%E8%8A%82%E7%82%B9.png">
 
-<link rel="canonical" href="http://rainmi.love/default-index/">
+<link rel="canonical" href="http://rainmi.love/jenkins/jenkins%E4%B9%8B%E4%BA%8C%EF%BC%9A%E4%BD%BF%E7%94%A8/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>RainMi's Notes</title>
+  <title>jenkins之二：使用 | RainMi's Notes</title>
   
 
 
@@ -150,9 +167,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -168,10 +186,9 @@
       <meta itemprop="name" content="RainMi's Notes">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/jenkins/jenkins%E4%B9%8B%E4%BA%8C%EF%BC%9A%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">jenkins之二：使用</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          jenkins之二：使用
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -210,7 +227,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="一-基础环境准备"><a href="#一-基础环境准备" class="headerlink" title="一.基础环境准备"></a>一.基础环境准备</h1><p>在linux服务器中安装git, maven配置git的公钥到你的github上，这些步骤是使用jenkins的前提。</p>
+        <h1 id="一-基础环境准备"><a href="#一-基础环境准备" class="headerlink" title="一.基础环境准备"></a>一.基础环境准备</h1><p>在linux服务器中安装git, maven配置git的公钥到你的github上，这些步骤是使用jenkins的前提。</p>
 <p>推荐安装两个插件，在系统管理中可以安装插件：<br>Rebuilder<br>Safe Restart</p>
 <h2 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a>1.安装git</h2><p>yum install -y git</p>
 <h2 id="2-maven部署"><a href="#2-maven部署" class="headerlink" title="2.maven部署"></a>2.maven部署</h2><h3 id="1-gt-安装jdk"><a href="#1-gt-安装jdk" class="headerlink" title="1&gt;. 安装jdk"></a>1&gt;. 安装jdk</h3><p>rpm -ivh jdk-8u201-linux-x64.rpm</p>
@@ -258,25 +275,31 @@
 
 <p><strong>至此，我们已经完成了一次自动化的构建部署。</strong> </p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/jenkins/jenkins%E4%B9%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85/" rel="prev" title="jenkins之一：安装">
+      <i class="fa fa-chevron-left"></i> jenkins之一：安装
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/default-index/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/default-index/page/5/">5</a><a class="extend next" rel="next" href="/default-index/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
 
 
@@ -328,6 +351,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">一.基础环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85git"><span class="nav-number">1.1.</span> <span class="nav-text">1.安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-maven%E9%83%A8%E7%BD%B2"><span class="nav-number">1.2.</span> <span class="nav-text">2.maven部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-gt-%E5%AE%89%E8%A3%85jdk"><span class="nav-number">1.2.1.</span> <span class="nav-text">1&gt;. 安装jdk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-gt-%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.2.2.</span> <span class="nav-text">2&gt;. 下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-gt-%E8%A7%A3%E5%8E%8B"><span class="nav-number">1.2.3.</span> <span class="nav-text">3&gt;. 解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-gt-%E5%8A%A0%E5%85%A5%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">1.2.4.</span> <span class="nav-text">4&gt;. 加入环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%88%9B%E5%BB%BAjenkins%E7%9B%AE%E5%BD%95"><span class="nav-number">1.3.</span> <span class="nav-text">3.创建jenkins目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%AE%9E%E7%8E%B0%E5%AF%86%E9%92%A5%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.4.</span> <span class="nav-text">4.与远程仓库实现密钥连接</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C-Jenkins%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">二.Jenkins配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%B0%86node%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B3%A8%E5%86%8C%E5%88%B0Jenkins%E4%B8%8A"><span class="nav-number">2.1.</span> <span class="nav-text">1.将node服务器注册到Jenkins上</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-gt-%E5%9C%A8jenkins%E4%B8%AD%E9%80%89%E6%8B%A9%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86-gt-%E6%96%B0%E5%BB%BA%E8%8A%82%E7%82%B9"><span class="nav-number">2.1.1.</span> <span class="nav-text">1&gt;.在jenkins中选择系统管理-&gt;新建节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-gt-%E5%A1%AB%E5%86%99%E5%A6%82%E4%B8%8B"><span class="nav-number">2.1.2.</span> <span class="nav-text">2&gt;.填写如下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-gt-%E8%BF%94%E5%9B%9E%E8%8A%82%E7%82%B9%E9%A1%B5%E9%9D%A2%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E6%88%91%E4%BB%AC%E6%96%B0%E5%BB%BA%E7%9A%84node%E8%8A%82%E7%82%B9"><span class="nav-number">2.1.3.</span> <span class="nav-text">3&gt;.返回节点页面可以看到我们新建的node节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="nav-number">2.2.</span> <span class="nav-text">2.配置自动化部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-gt-%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%8E%9F%E7%90%86"><span class="nav-number">2.2.1.</span> <span class="nav-text">1&gt;.自动化部署原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-gt-%E5%BC%80%E5%90%AFgit"><span class="nav-number">2.2.2.</span> <span class="nav-text">2&gt;.开启git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-gt-%E5%9C%A8jenkins%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E6%B7%BB%E5%8A%A0%E6%9E%84%E5%BB%BA%E8%84%9A%E6%9C%AC"><span class="nav-number">2.2.3.</span> <span class="nav-text">3&gt;.在jenkins工作目录添加构建脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-gt-%E6%96%B0%E5%BB%BA%E4%BB%BB%E5%8A%A1"><span class="nav-number">2.2.4.</span> <span class="nav-text">4&gt;新建任务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-%E5%9C%A8jenkins%E4%B8%8A%E6%96%B0%E5%BB%BA%E4%BB%BB%E5%8A%A1%EF%BC%8C%E5%A1%AB%E5%86%99%E4%BB%BB%E5%8A%A1%E5%90%8D"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">a.在jenkins上新建任务，填写任务名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-%E9%80%89%E6%8B%A9%E8%8A%82%E7%82%B9"><span class="nav-number">2.2.4.2.</span> <span class="nav-text">b.选择节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c-%E9%85%8D%E7%BD%AEgit%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80"><span class="nav-number">2.2.4.3.</span> <span class="nav-text">c.配置git仓库地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-%E9%85%8D%E7%BD%AE%E4%B8%8B%E8%BD%BD%E5%88%B0jenkins%E8%B7%AF%E5%BE%84%E4%B8%8B%E7%9A%84%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95"><span class="nav-number">2.2.4.4.</span> <span class="nav-text">d.配置下载到jenkins路径下的指定目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#e-%E9%80%89%E6%8B%A9%E6%9E%84%E5%BB%BA%E2%80%9C%E8%BF%90%E8%A1%8Cshell%E2%80%9D%EF%BC%8C%E5%B9%B6%E5%86%99%E5%85%A5%E8%84%9A%E6%9C%AC"><span class="nav-number">2.2.4.5.</span> <span class="nav-text">e.选择构建“运行shell”，并写入脚本</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89-%E6%89%A7%E8%A1%8C%E6%9E%84%E5%BB%BA"><span class="nav-number">3.</span> <span class="nav-text">三.执行构建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9C%A8jenkins%E9%A1%B5%E9%9D%A2%E5%8D%95%E5%87%BB%E6%9E%84%E5%BB%BA%E6%8C%89%E9%92%AE%E8%BF%9B%E8%A1%8C%E4%BB%BB%E5%8A%A1%E6%9E%84%E5%BB%BA"><span class="nav-number">3.1.</span> <span class="nav-text">1.在jenkins页面单击构建按钮进行任务构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%89%93%E5%BC%80%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%88%B0%E7%BD%91%E7%AB%99"><span class="nav-number">3.2.</span> <span class="nav-text">2.打开浏览器访问自动部署到网站</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
