@@ -20,28 +20,32 @@
     var CONFIG = {"hostname":"rainmi.love","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="RainMi&#39;s Notes">
-<meta property="og:url" content="http://rainmi.love/default-index/index.html">
+  <meta name="description" content="1.禁用firewalld12345678CentOS7默认的防火墙不是iptables,而是firewalld.禁用&#x2F;停止自带的firewalld服务#停止firewalld服务systemctl stop firewalld#禁用firewalld服务systemctl mask firewalld  2.安装iptable iptable-service12345678#安装iptables">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iptables">
+<meta property="og:url" content="http://rainmi.love/iptables/iptables/index.html">
 <meta property="og:site_name" content="RainMi&#39;s Notes">
+<meta property="og:description" content="1.禁用firewalld12345678CentOS7默认的防火墙不是iptables,而是firewalld.禁用&#x2F;停止自带的firewalld服务#停止firewalld服务systemctl stop firewalld#禁用firewalld服务systemctl mask firewalld  2.安装iptable iptable-service12345678#安装iptables">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-06-07T15:06:38.000Z">
+<meta property="article:modified_time" content="2021-06-07T15:50:17.236Z">
 <meta property="article:author" content="Rain Mi">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://rainmi.love/default-index/">
+<link rel="canonical" href="http://rainmi.love/iptables/iptables/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>RainMi's Notes</title>
+  <title>iptables | RainMi's Notes</title>
   
 
 
@@ -150,9 +154,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -168,10 +173,9 @@
       <meta itemprop="name" content="RainMi's Notes">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/iptables/iptables/" class="post-title-link" itemprop="url">iptables</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          iptables
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -204,7 +208,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="1-禁用firewalld"><a href="#1-禁用firewalld" class="headerlink" title="1.禁用firewalld"></a>1.禁用firewalld</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CentOS7默认的防火墙不是iptables,而是firewalld.</span><br><span class="line"></span><br><span class="line">禁用/停止自带的firewalld服务</span><br><span class="line">#停止firewalld服务</span><br><span class="line">systemctl stop firewalld</span><br><span class="line"></span><br><span class="line">#禁用firewalld服务</span><br><span class="line">systemctl mask firewalld</span><br></pre></td></tr></table></figure>
+        <h2 id="1-禁用firewalld"><a href="#1-禁用firewalld" class="headerlink" title="1.禁用firewalld"></a>1.禁用firewalld</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CentOS7默认的防火墙不是iptables,而是firewalld.</span><br><span class="line"></span><br><span class="line">禁用/停止自带的firewalld服务</span><br><span class="line">#停止firewalld服务</span><br><span class="line">systemctl stop firewalld</span><br><span class="line"></span><br><span class="line">#禁用firewalld服务</span><br><span class="line">systemctl mask firewalld</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-安装iptable-iptable-service"><a href="#2-安装iptable-iptable-service" class="headerlink" title="2.安装iptable iptable-service"></a>2.安装iptable iptable-service</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#安装iptables</span><br><span class="line">yum install -y iptables</span><br><span class="line"></span><br><span class="line">#或升级iptables</span><br><span class="line">yum update iptables </span><br><span class="line"></span><br><span class="line">#安装iptables-services</span><br><span class="line">yum install iptables-services</span><br></pre></td></tr></table></figure>
 
@@ -219,25 +223,31 @@
 
 <h2 id="6-iptables地址转发"><a href="#6-iptables地址转发" class="headerlink" title="6. iptables地址转发"></a>6. iptables地址转发</h2><h3 id="1）首先打开内核ip地址转发功能"><a href="#1）首先打开内核ip地址转发功能" class="headerlink" title="1）首先打开内核ip地址转发功能"></a>1）首先打开内核ip地址转发功能</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cat /proc/sys/net/ipv4/ip_forward  //查看，1为打开，0为关闭</span><br><span class="line"># echo &quot;1&quot; &gt; /proc/sys/net/ipv4/ip_forward</span><br></pre></td></tr></table></figure>
 <h3 id="2）外网只能访问192-168-0-151，不能访问192-168-0-161，要想访问192-168-0-161上的服务，可以将192-168-0-161的80端口映射到192-168-3-151上"><a href="#2）外网只能访问192-168-0-151，不能访问192-168-0-161，要想访问192-168-0-161上的服务，可以将192-168-0-161的80端口映射到192-168-3-151上" class="headerlink" title="2）外网只能访问192.168.0.151，不能访问192.168.0.161，要想访问192.168.0.161上的服务，可以将192.168.0.161的80端口映射到192.168.3.151上"></a>2）外网只能访问192.168.0.151，不能访问192.168.0.161，要想访问192.168.0.161上的服务，可以将192.168.0.161的80端口映射到192.168.3.151上</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A PREROUTING -p tcp -d 192.168.0.151 --dport 80 -j DNAT --to-destination 192.168.0.161:80</span><br><span class="line"></span><br><span class="line">iptables -t nat -A POSTROUTING -p tcp -d 192.168.0.161 --dport 80 -j SNAT --to-source 192.168.0.151</span><br></pre></td></tr></table></figure>
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/MySQL/xtrabackup%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" rel="prev" title="xtrabackup数据备份与恢复">
+      <i class="fa fa-chevron-left"></i> xtrabackup数据备份与恢复
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/default-index/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/default-index/page/7/">7</a><a class="extend next" rel="next" href="/default-index/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
 
 
@@ -289,6 +299,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%A6%81%E7%94%A8firewalld"><span class="nav-number">1.</span> <span class="nav-text">1.禁用firewalld</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85iptable-iptable-service"><span class="nav-number">2.</span> <span class="nav-text">2.安装iptable iptable-service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-iptables%E8%A7%84%E5%88%99%E5%AE%9E%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">3.iptables规则实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E8%A7%A3%E5%86%B3vsftpd%E5%9C%A8iptables%E5%BC%80%E5%90%AF%E5%90%8E-%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%E8%A2%AB%E5%8A%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">4.解决vsftpd在iptables开启后,无法使用被动模式的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%A6%96%E5%85%88%E5%9C%A8-etc-sysconfig-iptables-config%E4%B8%AD%E4%BF%AE%E6%94%B9%E6%88%96%E8%80%85%E6%B7%BB%E5%8A%A0%E4%BB%A5%E4%B8%8B%E5%86%85%E5%AE%B9"><span class="nav-number">4.1.</span> <span class="nav-text">1)首先在&#x2F;etc&#x2F;sysconfig&#x2F;iptables-config中修改或者添加以下内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%87%8D%E6%96%B0%E8%AE%BE%E7%BD%AEiptables%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.2.</span> <span class="nav-text">2)重新设置iptables设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%AE%9E%E4%BE%8B"><span class="nav-number">5.</span> <span class="nav-text">5.实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%89%A7%E8%A1%8C%E4%BB%A5%E4%B8%8B%E8%84%9A%E6%9C%AC"><span class="nav-number">5.1.</span> <span class="nav-text">1)执行以下脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%9F%A5%E7%9C%8Biptables%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">5.2.</span> <span class="nav-text">2)查看iptables配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-iptables%E5%9C%B0%E5%9D%80%E8%BD%AC%E5%8F%91"><span class="nav-number">6.</span> <span class="nav-text">6. iptables地址转发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%89%E9%A6%96%E5%85%88%E6%89%93%E5%BC%80%E5%86%85%E6%A0%B8ip%E5%9C%B0%E5%9D%80%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD"><span class="nav-number">6.1.</span> <span class="nav-text">1）首先打开内核ip地址转发功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%89%E5%A4%96%E7%BD%91%E5%8F%AA%E8%83%BD%E8%AE%BF%E9%97%AE192-168-0-151%EF%BC%8C%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE192-168-0-161%EF%BC%8C%E8%A6%81%E6%83%B3%E8%AE%BF%E9%97%AE192-168-0-161%E4%B8%8A%E7%9A%84%E6%9C%8D%E5%8A%A1%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%B0%86192-168-0-161%E7%9A%8480%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E5%88%B0192-168-3-151%E4%B8%8A"><span class="nav-number">6.2.</span> <span class="nav-text">2）外网只能访问192.168.0.151，不能访问192.168.0.161，要想访问192.168.0.161上的服务，可以将192.168.0.161的80端口映射到192.168.3.151上</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
