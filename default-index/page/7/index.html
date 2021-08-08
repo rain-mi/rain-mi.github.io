@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://rainmi.love/docker/docker%E4%B9%8B%E4%BA%8C%EF%BC%9A%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://rainmi.love/jenkins/jenkins%E4%B9%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -170,7 +170,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/docker/docker%E4%B9%8B%E4%BA%8C%EF%BC%9A%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">docker之二：使用</a>
+            <a href="/jenkins/jenkins%E4%B9%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">jenkins之一：安装</a>
         </h2>
 
         <div class="post-meta">
@@ -180,14 +180,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-22 17:09:40" itemprop="dateCreated datePublished" datetime="2021-05-22T17:09:40+08:00">2021-05-22</time>
+              <time title="创建时间：2021-05-23 11:50:34" itemprop="dateCreated datePublished" datetime="2021-05-23T11:50:34+08:00">2021-05-23</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 17:30:02" itemprop="dateModified" datetime="2021-05-25T17:30:02+08:00">2021-05-25</time>
+                <time title="修改时间：2021-05-25 17:18:06" itemprop="dateModified" datetime="2021-05-25T17:18:06+08:00">2021-05-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -195,7 +195,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+                  <a href="/categories/jenkins/" itemprop="url" rel="index"><span itemprop="name">jenkins</span></a>
                 </span>
             </span>
 
@@ -210,16 +210,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="一、创建容器"><a href="#一、创建容器" class="headerlink" title="一、创建容器"></a>一、创建容器</h2><h3 id="1-抓取mysql容器镜像"><a href="#1-抓取mysql容器镜像" class="headerlink" title="1.抓取mysql容器镜像"></a>1.抓取mysql容器镜像</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:5.7</span><br><span class="line"></span><br><span class="line">查看镜像</span><br><span class="line">docker images</span><br></pre></td></tr></table></figure>
+          <h2 id="Jenkins工作方式"><a href="#Jenkins工作方式" class="headerlink" title="Jenkins工作方式"></a>Jenkins工作方式</h2><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/jenkins%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.png" style="zoom:50%;" />
 
-<h3 id="2-启动镜像"><a href="#2-启动镜像" class="headerlink" title="2.启动镜像"></a>2.启动镜像</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mkdir -pv /data/mysql/&#123;log,conf,data&#125;</span><br><span class="line"></span><br><span class="line">docker run -p 31306:3306 --name mysql \</span><br><span class="line">--privileged=true -v /data/mysql/log:/var/log/mysql \</span><br><span class="line">-v /data/mysql/data:/var/lib/mysql \</span><br><span class="line">-v /data/mysql/conf:/etc/mysql \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=root \</span><br><span class="line">-d mysql:5.7</span><br><span class="line"></span><br><span class="line">数据库用户名root,密码root。 </span><br></pre></td></tr></table></figure>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>docker已部署</p>
+<h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><h3 id="1-启动docker，下载Jenkins镜像文件"><a href="#1-启动docker，下载Jenkins镜像文件" class="headerlink" title="1.启动docker，下载Jenkins镜像文件"></a>1.启动docker，下载Jenkins镜像文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull jenkinsci/blueocean</span><br></pre></td></tr></table></figure>
 
-<h2 id="二、将运行中的容器进行修改"><a href="#二、将运行中的容器进行修改" class="headerlink" title="二、将运行中的容器进行修改"></a>二、将运行中的容器进行修改</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">更新安装源</span><br><span class="line">apt-get update</span><br><span class="line">apt-get install -y vim</span><br></pre></td></tr></table></figure>
+<h3 id="2-创建Jenkins挂载目录并授权权限"><a href="#2-创建Jenkins挂载目录并授权权限" class="headerlink" title="2.创建Jenkins挂载目录并授权权限"></a>2.创建Jenkins挂载目录并授权权限</h3><p>我们在服务器上先创建一个jenkins工作目录 /var/jenkins_mount，赋予相应权限，稍后我们将jenkins容器目录挂载到这个目录上，这样我们就可以很方便地对容器内的配置文件进行修改。 如果我们不这样做，修改容器配置文件将会有点麻烦，因为虽然我们可以使（docker exec -it –user root 容器id /bin/bash）命令进入容器，但是容器中连简单的vi命令都没有安装。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /var/jenkins_mount</span><br><span class="line">chmod 777 /var/jenkins_mount</span><br></pre></td></tr></table></figure>
 
-<h2 id="三、创建自定义镜像"><a href="#三、创建自定义镜像" class="headerlink" title="三、创建自定义镜像"></a>三、创建自定义镜像</h2><h3 id="1-将运行的容器打包为镜像"><a href="#1-将运行的容器打包为镜像" class="headerlink" title="1.将运行的容器打包为镜像"></a>1.将运行的容器打包为镜像</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker commit -m &quot;add vim&quot; -a &quot;new mysql&quot; 136a93f66a27 mysql:5.7</span><br><span class="line"></span><br><span class="line">其中，-m 来指定提交的说明信息，跟我们使用的版本控制工具一样；</span><br><span class="line">     -a 可以指定更新的用户信息；</span><br><span class="line">     之后是用来创建镜像的容器的 ID；</span><br><span class="line">     最后指定目标镜像的仓库名和 tag 信息。</span><br><span class="line">创建成功后会返回这个镜像的 ID 信息。</span><br></pre></td></tr></table></figure>
-<h3 id="2-在阿里云创建镜像仓库命名为mysql"><a href="#2-在阿里云创建镜像仓库命名为mysql" class="headerlink" title="2.在阿里云创建镜像仓库命名为mysql"></a>2.在阿里云创建镜像仓库命名为mysql</h3><h3 id="3-在docker主机登录阿里云镜像仓库"><a href="#3-在docker主机登录阿里云镜像仓库" class="headerlink" title="3.在docker主机登录阿里云镜像仓库"></a>3.在docker主机登录阿里云镜像仓库</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">登录阿里云Docker Registry</span><br><span class="line">sudo docker login --username=[username] registry.cn-hangzhou.aliyuncs.com</span><br><span class="line">用于登录的用户名为阿里云账号全名，密码为开通服务时设置的密码。</span><br></pre></td></tr></table></figure>
+<h3 id="3-创建并启动Jenkins容器"><a href="#3-创建并启动Jenkins容器" class="headerlink" title="3.创建并启动Jenkins容器"></a>3.创建并启动Jenkins容器</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8081:8080 -p 50001:50000 \</span><br><span class="line">-v /var/jenkins_mount:/var/jenkins_home \</span><br><span class="line">-v /etc/localtime:/etc/localtime \</span><br><span class="line">--name myjenkins jenkinsci/blueocean</span><br><span class="line"></span><br><span class="line">命令详解：</span><br><span class="line">　　-d 后台运行镜像</span><br><span class="line">　　-p 8081:8080		将镜像的8080端口映射到服务器的8081端口。</span><br><span class="line">　　-p 50001:50000	将镜像的50000端口映射到服务器的50001端口</span><br><span class="line">　　-v /var/jenkins_mount:/var/jenkins_hone	/var/jenkins_home目录为容器jenkins工作路径，将其挂载到硬盘上的/var/jenkins_mount路径</span><br><span class="line">　　-v /etc/localtime:/etc/localtime	让容器使用和服务器同样的时间设置。</span><br><span class="line">　　--name myjenkins	给容器起一个别名</span><br></pre></td></tr></table></figure>
 
-<h3 id="4-将镜像推送到Registry"><a href="#4-将镜像推送到Registry" class="headerlink" title="4.将镜像推送到Registry"></a>4.将镜像推送到Registry</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker login --username=[username] registry.cn-hangzhou.aliyuncs.com</span><br><span class="line">$ sudo docker tag [ImageId] registry.cn-hangzhou.aliyuncs.com/[username]-repository/mysql:[镜像版本号]</span><br><span class="line">$ sudo docker push registry.cn-hangzhou.aliyuncs.com/[username]-repository/mysql:[镜像版本号]</span><br></pre></td></tr></table></figure>
+<h3 id="4-查看jenkins是否启动成功，如下图出现端口号，就为启动成功了"><a href="#4-查看jenkins是否启动成功，如下图出现端口号，就为启动成功了" class="headerlink" title="4.查看jenkins是否启动成功，如下图出现端口号，就为启动成功了"></a>4.查看jenkins是否启动成功，如下图出现端口号，就为启动成功了</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -l</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-查看docker容器日志"><a href="#5-查看docker容器日志" class="headerlink" title="5.查看docker容器日志"></a>5.查看docker容器日志</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs myjenkins</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-配置镜像加速"><a href="#6-配置镜像加速" class="headerlink" title="6.配置镜像加速"></a>6.配置镜像加速</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">cd /var/jenkins_mount/</span><br><span class="line">修改 vim hudson.model.UpdateCenter.xml</span><br><span class="line">修改前</span><br><span class="line">&lt;sites&gt;</span><br><span class="line">  &lt;site&gt;</span><br><span class="line">    &lt;id&gt;default&lt;/id&gt;</span><br><span class="line">    &lt;url&gt;https://updates.jenkins.io/update-center.json&lt;/url&gt;</span><br><span class="line">  &lt;/site&gt;</span><br><span class="line">&lt;/sites&gt;</span><br><span class="line">将 url 修改为 清华大学官方镜像：https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</span><br><span class="line"></span><br><span class="line">修改后</span><br><span class="line">&lt;sites&gt;</span><br><span class="line">  &lt;site&gt;</span><br><span class="line">    &lt;id&gt;default&lt;/id&gt;</span><br><span class="line">    &lt;url&gt;https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json&lt;/url&gt;</span><br><span class="line">  &lt;/site&gt;</span><br><span class="line">&lt;/sites&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="7-WEB页面配置"><a href="#7-WEB页面配置" class="headerlink" title="7.WEB页面配置"></a>7.WEB页面配置</h3><h4 id="1-gt-等待10分钟左右，浏览器访问：http-192-168-3-151-8081"><a href="#1-gt-等待10分钟左右，浏览器访问：http-192-168-3-151-8081" class="headerlink" title="1&gt; 等待10分钟左右，浏览器访问：http://192.168.3.151:8081/"></a>1&gt; 等待10分钟左右，浏览器访问：<a target="_blank" rel="noopener" href="http://192.168.3.151:8081/">http://192.168.3.151:8081/</a></h4><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/jenkins%E8%A7%A3%E9%94%81.png" style="zoom:30%;" />  
+
+<p><font color="red">注意：</font><br>这里显示的路径是容器内的路径，我们不进入容器查看，而是到挂载的本地路径去查看。<br>容器路径 /var/jenkins_home/secrets/initialAdminPassword<br>本地路径 /var/jenkins_mount/secrets/initialAdminPassword</p>
+<p><strong>使用此密码登录安装</strong><br>cat /var/jenkins_mount/secrets/initialAdminPassword<br>3e59c41fc1f74e6c8bbd02c3bfd35f8b</p>
+<h4 id="2-gt-自定义Jenkins安装插件（选择推荐安装）"><a href="#2-gt-自定义Jenkins安装插件（选择推荐安装）" class="headerlink" title="2&gt; 自定义Jenkins安装插件（选择推荐安装）"></a>2&gt; 自定义Jenkins安装插件（选择推荐安装）</h4><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/jenkins%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%89%E8%A3%85.png" style="zoom:30%;" /> 
+
+<h4 id="3-gt-Jenkins进入安装程序，这里等待10分钟左右"><a href="#3-gt-Jenkins进入安装程序，这里等待10分钟左右" class="headerlink" title="3&gt; Jenkins进入安装程序，这里等待10分钟左右"></a>3&gt; Jenkins进入安装程序，这里等待10分钟左右</h4><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/jenkins%E5%BC%80%E5%A7%8B%E5%AE%89%E8%A3%85.png" style="zoom:30%;" />
+
+<pre><code>                    出现如下页面证明Jenkins安装成功，我们点击“重启”按钮
+</code></pre>
+<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/jenkins%E5%88%9B%E5%BB%BA%E5%AE%8C%E6%88%90%E9%87%8D%E5%90%AF.png" style="zoom:30%;" />
+
+<h4 id="4-gt-Jenkins安装完成，我们接续浏览器访问：http-192-168-3-151-8081-可登录Jenkins管理平台"><a href="#4-gt-Jenkins安装完成，我们接续浏览器访问：http-192-168-3-151-8081-可登录Jenkins管理平台" class="headerlink" title="4&gt; Jenkins安装完成，我们接续浏览器访问：http://192.168.3.151:8081/ 可登录Jenkins管理平台"></a>4&gt; Jenkins安装完成，我们接续浏览器访问：<a target="_blank" rel="noopener" href="http://192.168.3.151:8081/">http://192.168.3.151:8081/</a> 可登录Jenkins管理平台</h4><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/jenkins%E7%99%BB%E5%BD%95.png" style="zoom:30%;" />
+
+<p><strong>到这里我们的 Jenkins 就已经安装完成了，在下节我们讲述Jenkins的使用。</strong></p>
+
       
     </div>
 
@@ -237,7 +260,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/default-index/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/default-index/">1</a><span class="space">&hellip;</span><a class="page-number" href="/default-index/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/default-index/page/8/">8</a><a class="page-number" href="/default-index/page/9/">9</a><a class="extend next" rel="next" href="/default-index/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/default-index/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/default-index/">1</a><span class="space">&hellip;</span><a class="page-number" href="/default-index/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/default-index/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/default-index/page/10/">10</a><a class="extend next" rel="next" href="/default-index/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -305,14 +328,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
