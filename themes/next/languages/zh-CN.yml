@@ -1,13 +1,13 @@
 ---
 name: 简体中文
 title:
-  archive: 笔记
+  archive: 时间线
   category: 分类
   tag: 标签
   schedule: 日程表
 menu:
   home: 首页
-  archives: 笔记
+  archives: 时间线
   categories: 分类
   tags: 标签
   about: 关于
