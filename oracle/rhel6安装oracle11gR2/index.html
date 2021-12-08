@@ -20,28 +20,55 @@
     var CONFIG = {"hostname":"rainmi.love","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="RainMi&#39;s Notes">
-<meta property="og:url" content="http://rainmi.love/default-index/index.html">
+  <meta name="description" content="一、安装基础依赖包12# yum install -y compat-libcap1 binutils compat-libstdc++-33 elfutils-libelf elfutils-libelf-devel gcc gcc-c++ glibc glibc-common glibc-devel glibc-headers libaio libaio-devel libgcc libstd">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rhel6 安装 oracle 11g r2">
+<meta property="og:url" content="http://rainmi.love/oracle/rhel6%E5%AE%89%E8%A3%85oracle11gR2/index.html">
 <meta property="og:site_name" content="RainMi&#39;s Notes">
+<meta property="og:description" content="一、安装基础依赖包12# yum install -y compat-libcap1 binutils compat-libstdc++-33 elfutils-libelf elfutils-libelf-devel gcc gcc-c++ glibc glibc-common glibc-devel glibc-headers libaio libaio-devel libgcc libstd">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall1.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall2.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall3.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall4.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall5.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall6.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall7.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall8.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall9.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall10.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall11.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall2.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall13.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall14.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall15.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca1.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca2.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca3.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca4.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca5.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca6.png">
+<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca7.png">
+<meta property="article:published_time" content="2021-12-08T14:26:13.000Z">
+<meta property="article:modified_time" content="2021-12-08T15:55:22.394Z">
 <meta property="article:author" content="Rain Mi">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall1.png">
 
-<link rel="canonical" href="http://rainmi.love/default-index/">
+<link rel="canonical" href="http://rainmi.love/oracle/rhel6%E5%AE%89%E8%A3%85oracle11gR2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>RainMi's Notes</title>
+  <title>rhel6 安装 oracle 11g r2 | RainMi's Notes</title>
   
 
 
@@ -150,9 +177,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -168,10 +196,9 @@
       <meta itemprop="name" content="RainMi's Notes">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/oracle/rhel6%E5%AE%89%E8%A3%85oracle11gR2/" class="post-title-link" itemprop="url">rhel6 安装 oracle 11g r2</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          rhel6 安装 oracle 11g r2
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -204,7 +231,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="一、安装基础依赖包"><a href="#一、安装基础依赖包" class="headerlink" title="一、安装基础依赖包"></a>一、安装基础依赖包</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># yum install -y compat-libcap1 binutils compat-libstdc++-33 elfutils-libelf elfutils-libelf-devel gcc gcc-c++ glibc glibc-common glibc-devel glibc-headers libaio libaio-devel libgcc libstdc++ libstdc++-devel make numactl-devel sysstat unixODBC-2.2.14-14.el6.x86_64 unixODBC-2.2.14-14.el6.i686 unixODBC-devel-2.2.14-14.el6.x86_64 unixODBC-devel-2.2.14-14.el6.i686</span><br><span class="line"># rpm -ivh pdksh-5.2.14-37.el5_8.1.x86_64.rpm</span><br></pre></td></tr></table></figure>
+        <h1 id="一、安装基础依赖包"><a href="#一、安装基础依赖包" class="headerlink" title="一、安装基础依赖包"></a>一、安装基础依赖包</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># yum install -y compat-libcap1 binutils compat-libstdc++-33 elfutils-libelf elfutils-libelf-devel gcc gcc-c++ glibc glibc-common glibc-devel glibc-headers libaio libaio-devel libgcc libstdc++ libstdc++-devel make numactl-devel sysstat unixODBC-2.2.14-14.el6.x86_64 unixODBC-2.2.14-14.el6.i686 unixODBC-devel-2.2.14-14.el6.x86_64 unixODBC-devel-2.2.14-14.el6.i686</span><br><span class="line"># rpm -ivh pdksh-5.2.14-37.el5_8.1.x86_64.rpm</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">Oracle官方文档中确定要安装的包如下:</span><br><span class="line">    binutils-2.17.50.0.6</span><br><span class="line">    compat-libstdc++-33-3.2.3</span><br><span class="line">    compat-libstdc++-33-3.2.3 (32 bit)</span><br><span class="line">    elfutils-libelf-0.125</span><br><span class="line">    elfutils-libelf-devel-0.125</span><br><span class="line">    gcc-4.1.2</span><br><span class="line">    gcc-c++-4.1.2</span><br><span class="line">    glibc-2.5-24</span><br><span class="line">    glibc-2.5-24 (32 bit)</span><br><span class="line">    glibc-common-2.5</span><br><span class="line">    glibc-devel-2.5</span><br><span class="line">    glibc-devel-2.5 (32 bit)</span><br><span class="line">    glibc-headers-2.5</span><br><span class="line">    ksh-20060214</span><br><span class="line">    libaio-0.3.106</span><br><span class="line">    libaio-0.3.106 (32 bit)</span><br><span class="line">    libaio-devel-0.3.106</span><br><span class="line">    libaio-devel-0.3.106 (32 bit)</span><br><span class="line">    libgcc-4.1.2</span><br><span class="line">    libgcc-4.1.2 (32 bit)</span><br><span class="line">    libstdc++-4.1.2</span><br><span class="line">    libstdc++-4.1.2 (32 bit)</span><br><span class="line">    libstdc++-devel 4.1.2</span><br><span class="line">    make-3.81</span><br><span class="line">    numactl-devel-0.9.8.x86_64</span><br><span class="line">    sysstat-7.0.2</span><br><span class="line">    unixODBC-2.2.14-12.el6_3.i686.rpm</span><br><span class="line">    unixODBC-2.2.14-12.el6_3.x86_64.rpm</span><br><span class="line">    unixODBC-devel-2.2.14-12.el6_3.i686.rpm</span><br><span class="line">    unixODBC-devel-2.2.14-12.el6_3.x86_64.rpm</span><br><span class="line">    </span><br><span class="line">    注:</span><br><span class="line">    (1)安装glibc-2.17-55.el7.i686.rpm时，因为依赖包相互依赖，需要与依赖包同时安装:</span><br><span class="line">    rpm -ivh glibc-2.17-55.el7.i686.rpm nss-softokn-freebl-3.15.4-2.el7.i686.rpm</span><br><span class="line">    (2)RHEL7中缺少包compat-libstdc++-33，可以在RHEL6中找到.</span><br><span class="line">    (3)在Oracle数据库软件安装时,ksh实际是用的pdksh，但ksh也是可以使用的，只是安装时会有警告，pdksh是一个早期的软件包，可以在以下网站找到.</span><br><span class="line">    http://rpm.pbone.net/</span><br></pre></td></tr></table></figure>
 
 <h1 id="二、系统参数配置"><a href="#二、系统参数配置" class="headerlink" title="二、系统参数配置"></a>二、系统参数配置</h1><h2 id="2-1-系统语言"><a href="#2-1-系统语言" class="headerlink" title="2.1 系统语言"></a>2.1 系统语言</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/i18n </span><br><span class="line">LANG=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LANG=&quot;en_US.UTF-8&quot;</span><br><span class="line">SYSFONT=&quot;latarcyrheb-sun16&quot;</span><br></pre></td></tr></table></figure>
@@ -277,25 +304,31 @@
 
 
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/kubernetes/%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2kubernetes%EF%BC%88kubeadm%EF%BC%89/" rel="prev" title="离线部署kubernetes（kubeadm）">
+      <i class="fa fa-chevron-left"></i> 离线部署kubernetes（kubeadm）
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/default-index/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/default-index/page/11/">11</a><a class="extend next" rel="next" href="/default-index/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
 
 
@@ -347,6 +380,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85%E5%9F%BA%E7%A1%80%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">一、安装基础依赖包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%B3%BB%E7%BB%9F%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">二、系统参数配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E7%B3%BB%E7%BB%9F%E8%AF%AD%E8%A8%80"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 系统语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0%E8%B0%83%E4%BC%98"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 内核参数调优</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%88%9B%E5%BB%BAoracle%E7%94%A8%E6%88%B7%E4%B8%8E%E7%BB%84"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 创建oracle用户与组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E9%85%8D%E7%BD%AE-etc-hosts%E6%96%87%E4%BB%B6"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 配置&#x2F;etc&#x2F;hosts文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-%E5%88%9B%E5%BB%BAoracle%E5%AE%89%E8%A3%85%E7%9B%AE%E5%BD%95"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 创建oracle安装目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-%E8%AE%BE%E7%BD%AEoracle%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 设置oracle用户环境变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81oracle%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">三、oracle安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E8%A7%A3%E5%8E%8Boracle%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 解压oracle软件包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E6%89%A7%E8%A1%8C%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 执行安装命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E8%BF%9B%E5%85%A5oracle%E5%9B%BE%E5%BD%A2%E5%AE%89%E8%A3%85%E7%95%8C%E9%9D%A2-%E5%AE%89%E8%A3%85oracle%E8%BD%AF%E4%BB%B6"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 进入oracle图形安装界面,安装oracle软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-1-%E5%8F%96%E6%B6%88%E5%8B%BE%E9%80%89%E8%BD%AF%E4%BB%B6%E5%8D%87%E7%BA%A7"><span class="nav-number">3.3.1.</span> <span class="nav-text">3.3.1 取消勾选软件升级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-2"><span class="nav-number">3.3.2.</span> <span class="nav-text">3.3.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-3-%E8%B7%B3%E8%BF%87%E8%BD%AF%E4%BB%B6%E5%8D%87%E7%BA%A7"><span class="nav-number">3.3.3.</span> <span class="nav-text">3.3.3 跳过软件升级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-4"><span class="nav-number">3.3.4.</span> <span class="nav-text">3.3.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-5"><span class="nav-number">3.3.5.</span> <span class="nav-text">3.3.5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-6"><span class="nav-number">3.3.6.</span> <span class="nav-text">3.3.6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-7"><span class="nav-number">3.3.7.</span> <span class="nav-text">3.3.7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-8"><span class="nav-number">3.3.8.</span> <span class="nav-text">3.3.8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-9"><span class="nav-number">3.3.9.</span> <span class="nav-text">3.3.9</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-10"><span class="nav-number">3.3.10.</span> <span class="nav-text">3.3.10</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-11"><span class="nav-number">3.3.11.</span> <span class="nav-text">3.3.11</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-12"><span class="nav-number">3.3.12.</span> <span class="nav-text">3.3.12</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-13"><span class="nav-number">3.3.13.</span> <span class="nav-text">3.3.13</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-14"><span class="nav-number">3.3.14.</span> <span class="nav-text">3.3.14</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-15"><span class="nav-number">3.3.15.</span> <span class="nav-text">3.3.15</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-%E5%88%9B%E5%BB%BAoracle%E7%9B%91%E5%90%AC"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 创建oracle监听</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-1-%E8%BF%9B%E5%85%A5%E5%88%9B%E5%BB%BAoracle%E7%9B%91%E5%90%AC%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2"><span class="nav-number">3.4.1.</span> <span class="nav-text">3.4.1 进入创建oracle监听图形界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-2"><span class="nav-number">3.4.2.</span> <span class="nav-text">3.4.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-3"><span class="nav-number">3.4.3.</span> <span class="nav-text">3.4.3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-4"><span class="nav-number">3.4.4.</span> <span class="nav-text">3.4.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-5"><span class="nav-number">3.4.5.</span> <span class="nav-text">3.4.5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-6"><span class="nav-number">3.4.6.</span> <span class="nav-text">3.4.6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-7"><span class="nav-number">3.4.7.</span> <span class="nav-text">3.4.7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-8"><span class="nav-number">3.4.8.</span> <span class="nav-text">3.4.8</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
