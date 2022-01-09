@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://rainmi.love/oracle/rhel6%E5%AE%89%E8%A3%85oracle11gR2/">
+    <link itemprop="mainEntityOfPage" href="http://rainmi.love/oracle/rhel6%E5%AE%89%E8%A3%85oracle11gr2%E4%B9%8B%E4%BA%8C%EF%BC%9A%E5%88%9B%E5%BB%BA%E7%9B%91%E5%90%AC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -170,7 +170,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/oracle/rhel6%E5%AE%89%E8%A3%85oracle11gR2/" class="post-title-link" itemprop="url">rhel6 安装 oracle 11g r2</a>
+            <a href="/oracle/rhel6%E5%AE%89%E8%A3%85oracle11gr2%E4%B9%8B%E4%BA%8C%EF%BC%9A%E5%88%9B%E5%BB%BA%E7%9B%91%E5%90%AC/" class="post-title-link" itemprop="url">rhel6安装oracle11gr2之二：创建监听</a>
         </h2>
 
         <div class="post-meta">
@@ -179,10 +179,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-12-08 22:26:13 / 修改时间：23:55:22" itemprop="dateCreated datePublished" datetime="2021-12-08T22:26:13+08:00">2021-12-08</time>
+              <time title="创建时间：2021-12-10 22:20:13" itemprop="dateCreated datePublished" datetime="2021-12-10T22:20:13+08:00">2021-12-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-01-09 13:43:13" itemprop="dateModified" datetime="2022-01-09T13:43:13+08:00">2022-01-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -204,74 +210,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="一、安装基础依赖包"><a href="#一、安装基础依赖包" class="headerlink" title="一、安装基础依赖包"></a>一、安装基础依赖包</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># yum install -y compat-libcap1 binutils compat-libstdc++-33 elfutils-libelf elfutils-libelf-devel gcc gcc-c++ glibc glibc-common glibc-devel glibc-headers libaio libaio-devel libgcc libstdc++ libstdc++-devel make numactl-devel sysstat unixODBC-2.2.14-14.el6.x86_64 unixODBC-2.2.14-14.el6.i686 unixODBC-devel-2.2.14-14.el6.x86_64 unixODBC-devel-2.2.14-14.el6.i686</span><br><span class="line"># rpm -ivh pdksh-5.2.14-37.el5_8.1.x86_64.rpm</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">Oracle官方文档中确定要安装的包如下:</span><br><span class="line">    binutils-2.17.50.0.6</span><br><span class="line">    compat-libstdc++-33-3.2.3</span><br><span class="line">    compat-libstdc++-33-3.2.3 (32 bit)</span><br><span class="line">    elfutils-libelf-0.125</span><br><span class="line">    elfutils-libelf-devel-0.125</span><br><span class="line">    gcc-4.1.2</span><br><span class="line">    gcc-c++-4.1.2</span><br><span class="line">    glibc-2.5-24</span><br><span class="line">    glibc-2.5-24 (32 bit)</span><br><span class="line">    glibc-common-2.5</span><br><span class="line">    glibc-devel-2.5</span><br><span class="line">    glibc-devel-2.5 (32 bit)</span><br><span class="line">    glibc-headers-2.5</span><br><span class="line">    ksh-20060214</span><br><span class="line">    libaio-0.3.106</span><br><span class="line">    libaio-0.3.106 (32 bit)</span><br><span class="line">    libaio-devel-0.3.106</span><br><span class="line">    libaio-devel-0.3.106 (32 bit)</span><br><span class="line">    libgcc-4.1.2</span><br><span class="line">    libgcc-4.1.2 (32 bit)</span><br><span class="line">    libstdc++-4.1.2</span><br><span class="line">    libstdc++-4.1.2 (32 bit)</span><br><span class="line">    libstdc++-devel 4.1.2</span><br><span class="line">    make-3.81</span><br><span class="line">    numactl-devel-0.9.8.x86_64</span><br><span class="line">    sysstat-7.0.2</span><br><span class="line">    unixODBC-2.2.14-12.el6_3.i686.rpm</span><br><span class="line">    unixODBC-2.2.14-12.el6_3.x86_64.rpm</span><br><span class="line">    unixODBC-devel-2.2.14-12.el6_3.i686.rpm</span><br><span class="line">    unixODBC-devel-2.2.14-12.el6_3.x86_64.rpm</span><br><span class="line">    </span><br><span class="line">    注:</span><br><span class="line">    (1)安装glibc-2.17-55.el7.i686.rpm时，因为依赖包相互依赖，需要与依赖包同时安装:</span><br><span class="line">    rpm -ivh glibc-2.17-55.el7.i686.rpm nss-softokn-freebl-3.15.4-2.el7.i686.rpm</span><br><span class="line">    (2)RHEL7中缺少包compat-libstdc++-33，可以在RHEL6中找到.</span><br><span class="line">    (3)在Oracle数据库软件安装时,ksh实际是用的pdksh，但ksh也是可以使用的，只是安装时会有警告，pdksh是一个早期的软件包，可以在以下网站找到.</span><br><span class="line">    http://rpm.pbone.net/</span><br></pre></td></tr></table></figure>
+          <h1 id="创建oracle监听"><a href="#创建oracle监听" class="headerlink" title="创建oracle监听"></a>创建oracle监听</h1><h2 id="1-进入创建oracle监听图形界面"><a href="#1-进入创建oracle监听图形界面" class="headerlink" title="1 进入创建oracle监听图形界面"></a>1 进入创建oracle监听图形界面</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">oracle用户下输入如下命令：</span><br><span class="line">netca</span><br></pre></td></tr></table></figure>
 
-<h1 id="二、系统参数配置"><a href="#二、系统参数配置" class="headerlink" title="二、系统参数配置"></a>二、系统参数配置</h1><h2 id="2-1-系统语言"><a href="#2-1-系统语言" class="headerlink" title="2.1 系统语言"></a>2.1 系统语言</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/i18n </span><br><span class="line">LANG=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LANG=&quot;en_US.UTF-8&quot;</span><br><span class="line">SYSFONT=&quot;latarcyrheb-sun16&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="2-选择“Linstener-configura”"><a href="#2-选择“Linstener-configura”" class="headerlink" title="2 选择“Linstener configura”"></a>2 选择“Linstener configura”</h2><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca1.png" style="zoom:35% ;" />
 
-<h2 id="2-2-内核参数调优"><a href="#2-2-内核参数调优" class="headerlink" title="2.2 内核参数调优"></a>2.2 内核参数调优</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysctl.conf </span><br><span class="line">-------------------------------</span><br><span class="line"># for oracle</span><br><span class="line">fs.aio-max-nr = 1048576</span><br><span class="line">fs.file-max = 6815744</span><br><span class="line">kernel.shmall = 2097152</span><br><span class="line">kernel.shmmax = 2001117184</span><br><span class="line">kernel.shmmni = 4096</span><br><span class="line">kernel.sem = 250 32000 100 128</span><br><span class="line">net.ipv4.ip_local_port_range = 9000 65500</span><br><span class="line">net.core.rmem_default = 262144</span><br><span class="line">net.core.rmem_max = 4194304</span><br><span class="line">net.core.wmem_default = 262144</span><br><span class="line">net.core.wmem_max = 1048586</span><br><span class="line">-------------------------------</span><br><span class="line">使内核生效</span><br><span class="line"># /sbin/sysctl -p</span><br></pre></td></tr></table></figure>
+<h2 id="3-选择“Add”，添加"><a href="#3-选择“Add”，添加" class="headerlink" title="3 选择“Add”，添加"></a>3 选择“Add”，添加</h2><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca2.png" style="zoom:35% ;" />
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># vim /etc/security/limits.conf</span><br><span class="line">--------------------------------------</span><br><span class="line"># for oracle</span><br><span class="line">oracle              soft    nproc   2047</span><br><span class="line">oracle              hard    nproc   16384</span><br><span class="line">oracle              soft    nofile  1024</span><br><span class="line">oracle              hard    nofile  65536</span><br><span class="line">oracle              soft    stack   10240</span><br><span class="line">--------------------------------------</span><br></pre></td></tr></table></figure>
+<h2 id="4-设置监听名称，这里默认“LISTENER”"><a href="#4-设置监听名称，这里默认“LISTENER”" class="headerlink" title="4 设置监听名称，这里默认“LISTENER”"></a>4 设置监听名称，这里默认“LISTENER”</h2><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca3.png" style="zoom:35% ;" />
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># vim /etc/pam.d/login(limits.conf是pam_limits.so的配置文件)</span><br><span class="line">session    required     /lib/security/pam_limits.so</span><br></pre></td></tr></table></figure>
+<h2 id="5-选择监听协议“tcp”"><a href="#5-选择监听协议“tcp”" class="headerlink" title="5 选择监听协议“tcp”"></a>5 选择监听协议“tcp”</h2><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca4.png" style="zoom:35% ;" />
 
-<h2 id="2-3-创建oracle用户与组"><a href="#2-3-创建oracle用户与组" class="headerlink" title="2.3 创建oracle用户与组"></a>2.3 创建oracle用户与组</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">groupadd oinstall</span><br><span class="line">groupadd dba</span><br><span class="line">useradd -g oinstall -G dba oracle</span><br><span class="line">echo &quot;oracle&quot; | passwd --stdin oracle</span><br></pre></td></tr></table></figure>
+<h2 id="6-配置端口号“1521”"><a href="#6-配置端口号“1521”" class="headerlink" title="6 配置端口号“1521”"></a>6 配置端口号“1521”</h2><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca5.png" style="zoom:35% ;" />
 
-<h2 id="2-4-配置-etc-hosts文件"><a href="#2-4-配置-etc-hosts文件" class="headerlink" title="2.4 配置/etc/hosts文件"></a>2.4 配置/etc/hosts文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># vim /etc/hosts</span><br><span class="line"></span><br><span class="line">添加如下</span><br><span class="line">192.168.8.12    sq1</span><br></pre></td></tr></table></figure>
+<h2 id="7-选择“NO”，不再添加其它监听"><a href="#7-选择“NO”，不再添加其它监听" class="headerlink" title="7 选择“NO”，不再添加其它监听"></a>7 选择“NO”，不再添加其它监听</h2><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca6.png" style="zoom:35% ;" />
 
-<h2 id="2-5-创建oracle安装目录"><a href="#2-5-创建oracle安装目录" class="headerlink" title="2.5 创建oracle安装目录"></a>2.5 创建oracle安装目录</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -pv /oracle/app</span><br><span class="line">chmod 770 /oracle</span><br><span class="line">chown -R oracle.oinstall /oracle</span><br></pre></td></tr></table></figure>
-<h2 id="2-6-设置oracle用户环境变量"><a href="#2-6-设置oracle用户环境变量" class="headerlink" title="2.6 设置oracle用户环境变量"></a>2.6 设置oracle用户环境变量</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># su - oracle</span><br><span class="line">$ vim .bash_profile </span><br><span class="line">ORACLE_BASE=/oracle/app</span><br><span class="line">ORACLE_HOME=$ORACLE_BASE/product/11.2.0/dbhome_1</span><br><span class="line">ORACLE_SID=orcl</span><br><span class="line">PATH=$PATH:$HOME/bin:$ORACLE_HOME/bin</span><br><span class="line">LD_LIBRARY_PATH=$ORACLE_HOME/lib:/usr/lib</span><br><span class="line">LANG=en_US.UTF-8</span><br><span class="line">export ORACLE_BASE ORACLE_HOME ORACLE_SID PATH LD_LIBRARY_PATH LANG</span><br><span class="line"></span><br><span class="line">注意：</span><br><span class="line">  ORACLE_SID=orcl</span><br><span class="line">  orcl为oracle数据实例名</span><br><span class="line">  </span><br><span class="line">让环境变量生效</span><br><span class="line">$ source .bash_profile </span><br></pre></td></tr></table></figure>
-
-
-<h1 id="三、oracle安装"><a href="#三、oracle安装" class="headerlink" title="三、oracle安装"></a>三、oracle安装</h1><h2 id="3-1-解压oracle软件包"><a href="#3-1-解压oracle软件包" class="headerlink" title="3.1 解压oracle软件包"></a>3.1 解压oracle软件包</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip oracle_database_linux32.zip </span><br></pre></td></tr></table></figure>
-
-<h2 id="3-2-执行安装命令"><a href="#3-2-执行安装命令" class="headerlink" title="3.2 执行安装命令"></a>3.2 执行安装命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">以oracle 用户登陆 进入解压缩目录  </span><br><span class="line">./runInstaller</span><br><span class="line">注意：这里一定要以oracle用户登录。</span><br></pre></td></tr></table></figure>
-<h2 id="3-3-进入oracle图形安装界面-安装oracle软件"><a href="#3-3-进入oracle图形安装界面-安装oracle软件" class="headerlink" title="3.3 进入oracle图形安装界面,安装oracle软件"></a>3.3 进入oracle图形安装界面,安装oracle软件</h2><h3 id="3-3-1-取消勾选软件升级"><a href="#3-3-1-取消勾选软件升级" class="headerlink" title="3.3.1 取消勾选软件升级"></a>3.3.1 取消勾选软件升级</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall1.png" style="zoom:35% ;" />
-
-<h3 id="3-3-2"><a href="#3-3-2" class="headerlink" title="3.3.2"></a>3.3.2</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall2.png" style="zoom:35% ;" />
-
-<h3 id="3-3-3-跳过软件升级"><a href="#3-3-3-跳过软件升级" class="headerlink" title="3.3.3 跳过软件升级"></a>3.3.3 跳过软件升级</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall3.png" style="zoom:35% ;" />
-
-<h3 id="3-3-4"><a href="#3-3-4" class="headerlink" title="3.3.4"></a>3.3.4</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall4.png" style="zoom:35% ;" />
-
-<h3 id="3-3-5"><a href="#3-3-5" class="headerlink" title="3.3.5"></a>3.3.5</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall5.png" style="zoom:35% ;" />
-
-<h3 id="3-3-6"><a href="#3-3-6" class="headerlink" title="3.3.6"></a>3.3.6</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall6.png" style="zoom:35% ;" />
-
-<h3 id="3-3-7"><a href="#3-3-7" class="headerlink" title="3.3.7"></a>3.3.7</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall7.png" style="zoom:35% ;" />
-
-<h3 id="3-3-8"><a href="#3-3-8" class="headerlink" title="3.3.8"></a>3.3.8</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall8.png" style="zoom:35% ;" />
-
-<h3 id="3-3-9"><a href="#3-3-9" class="headerlink" title="3.3.9"></a>3.3.9</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall9.png" style="zoom:35% ;" />
-
-<h3 id="3-3-10"><a href="#3-3-10" class="headerlink" title="3.3.10"></a>3.3.10</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall10.png" style="zoom:35% ;" />
-
-<h3 id="3-3-11"><a href="#3-3-11" class="headerlink" title="3.3.11"></a>3.3.11</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall11.png" style="zoom:35% ;" />
-
-<h3 id="3-3-12"><a href="#3-3-12" class="headerlink" title="3.3.12"></a>3.3.12</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall2.png" style="zoom:35% ;" />
-
-<h3 id="3-3-13"><a href="#3-3-13" class="headerlink" title="3.3.13"></a>3.3.13</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall13.png" style="zoom:35% ;" />
-
-<h3 id="3-3-14"><a href="#3-3-14" class="headerlink" title="3.3.14"></a>3.3.14</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall14.png" style="zoom:35% ;" />
-
-<h3 id="3-3-15"><a href="#3-3-15" class="headerlink" title="3.3.15"></a>3.3.15</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall15.png" style="zoom:35% ;" />
-
-
-<h2 id="3-4-创建oracle监听"><a href="#3-4-创建oracle监听" class="headerlink" title="3.4 创建oracle监听"></a>3.4 创建oracle监听</h2><h3 id="3-4-1-进入创建oracle监听图形界面"><a href="#3-4-1-进入创建oracle监听图形界面" class="headerlink" title="3.4.1 进入创建oracle监听图形界面"></a>3.4.1 进入创建oracle监听图形界面</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">oracle用户下输入如下命令：</span><br><span class="line">netca</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-4-2"><a href="#3-4-2" class="headerlink" title="3.4.2"></a>3.4.2</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca1.png" style="zoom:35% ;" />
-
-<h3 id="3-4-3"><a href="#3-4-3" class="headerlink" title="3.4.3"></a>3.4.3</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca2.png" style="zoom:35% ;" />
-
-<h3 id="3-4-4"><a href="#3-4-4" class="headerlink" title="3.4.4"></a>3.4.4</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca3.png" style="zoom:35% ;" />
-
-<h3 id="3-4-5"><a href="#3-4-5" class="headerlink" title="3.4.5"></a>3.4.5</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca4.png" style="zoom:35% ;" />
-
-<h3 id="3-4-6"><a href="#3-4-6" class="headerlink" title="3.4.6"></a>3.4.6</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca5.png" style="zoom:35% ;" />
-
-<h3 id="3-4-7"><a href="#3-4-7" class="headerlink" title="3.4.7"></a>3.4.7</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca6.png" style="zoom:35% ;" />
-
-<h3 id="3-4-8"><a href="#3-4-8" class="headerlink" title="3.4.8"></a>3.4.8</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca7.png" style="zoom:35% ;" />
+<h2 id="8-监听创建完成，选择“Finish”结束窗口界面。"><a href="#8-监听创建完成，选择“Finish”结束窗口界面。" class="headerlink" title="8 监听创建完成，选择“Finish”结束窗口界面。"></a>8 监听创建完成，选择“Finish”结束窗口界面。</h2><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca7.png" style="zoom:35% ;" />
 
 
 
@@ -294,7 +247,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/default-index/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/default-index/page/11/">11</a><a class="extend next" rel="next" href="/default-index/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/default-index/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/default-index/page/12/">12</a><a class="extend next" rel="next" href="/default-index/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -362,7 +315,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -404,7 +357,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -22,8 +22,8 @@
 
   <meta name="description" content="一、安装基础依赖包12# yum install -y compat-libcap1 binutils compat-libstdc++-33 elfutils-libelf elfutils-libelf-devel gcc gcc-c++ glibc glibc-common glibc-devel glibc-headers libaio libaio-devel libgcc libstd">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rhel6 安装 oracle 11g r2">
-<meta property="og:url" content="http://rainmi.love/oracle/rhel6%E5%AE%89%E8%A3%85oracle11gR2/index.html">
+<meta property="og:title" content="rhel6安装oracle11gr2之一：安装">
+<meta property="og:url" content="http://rainmi.love/oracle/rhel6%E5%AE%89%E8%A3%85oracle11gr2%E4%B9%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85/index.html">
 <meta property="og:site_name" content="RainMi&#39;s Notes">
 <meta property="og:description" content="一、安装基础依赖包12# yum install -y compat-libcap1 binutils compat-libstdc++-33 elfutils-libelf elfutils-libelf-devel gcc gcc-c++ glibc glibc-common glibc-devel glibc-headers libaio libaio-devel libgcc libstd">
 <meta property="og:locale" content="zh_CN">
@@ -38,24 +38,16 @@
 <meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall9.png">
 <meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall10.png">
 <meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall11.png">
-<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall2.png">
 <meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall13.png">
 <meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall14.png">
 <meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall15.png">
-<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca1.png">
-<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca2.png">
-<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca3.png">
-<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca4.png">
-<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca5.png">
-<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca6.png">
-<meta property="og:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca7.png">
 <meta property="article:published_time" content="2021-12-08T14:26:13.000Z">
-<meta property="article:modified_time" content="2021-12-08T15:55:22.394Z">
+<meta property="article:modified_time" content="2022-01-09T05:42:00.837Z">
 <meta property="article:author" content="Rain Mi">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall1.png">
 
-<link rel="canonical" href="http://rainmi.love/oracle/rhel6%E5%AE%89%E8%A3%85oracle11gR2/">
+<link rel="canonical" href="http://rainmi.love/oracle/rhel6%E5%AE%89%E8%A3%85oracle11gr2%E4%B9%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85/">
 
 
 <script id="page-configurations">
@@ -68,7 +60,7 @@
   };
 </script>
 
-  <title>rhel6 安装 oracle 11g r2 | RainMi's Notes</title>
+  <title>rhel6安装oracle11gr2之一：安装 | RainMi's Notes</title>
   
 
 
@@ -184,7 +176,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://rainmi.love/oracle/rhel6%E5%AE%89%E8%A3%85oracle11gR2/">
+    <link itemprop="mainEntityOfPage" href="http://rainmi.love/oracle/rhel6%E5%AE%89%E8%A3%85oracle11gr2%E4%B9%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -197,7 +189,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          rhel6 安装 oracle 11g r2
+          rhel6安装oracle11gr2之一：安装
         </h1>
 
         <div class="post-meta">
@@ -206,10 +198,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-12-08 22:26:13 / 修改时间：23:55:22" itemprop="dateCreated datePublished" datetime="2021-12-08T22:26:13+08:00">2021-12-08</time>
+              <time title="创建时间：2021-12-08 22:26:13" itemprop="dateCreated datePublished" datetime="2021-12-08T22:26:13+08:00">2021-12-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-01-09 13:42:00" itemprop="dateModified" datetime="2022-01-09T13:42:00+08:00">2022-01-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -253,56 +251,46 @@
 <h1 id="三、oracle安装"><a href="#三、oracle安装" class="headerlink" title="三、oracle安装"></a>三、oracle安装</h1><h2 id="3-1-解压oracle软件包"><a href="#3-1-解压oracle软件包" class="headerlink" title="3.1 解压oracle软件包"></a>3.1 解压oracle软件包</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip oracle_database_linux32.zip </span><br></pre></td></tr></table></figure>
 
 <h2 id="3-2-执行安装命令"><a href="#3-2-执行安装命令" class="headerlink" title="3.2 执行安装命令"></a>3.2 执行安装命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">以oracle 用户登陆 进入解压缩目录  </span><br><span class="line">./runInstaller</span><br><span class="line">注意：这里一定要以oracle用户登录。</span><br></pre></td></tr></table></figure>
-<h2 id="3-3-进入oracle图形安装界面-安装oracle软件"><a href="#3-3-进入oracle图形安装界面-安装oracle软件" class="headerlink" title="3.3 进入oracle图形安装界面,安装oracle软件"></a>3.3 进入oracle图形安装界面,安装oracle软件</h2><h3 id="3-3-1-取消勾选软件升级"><a href="#3-3-1-取消勾选软件升级" class="headerlink" title="3.3.1 取消勾选软件升级"></a>3.3.1 取消勾选软件升级</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall1.png" style="zoom:35% ;" />
+<h2 id="3-3-进入oracle图形安装界面-安装oracle软件"><a href="#3-3-进入oracle图形安装界面-安装oracle软件" class="headerlink" title="3.3 进入oracle图形安装界面,安装oracle软件"></a>3.3 进入oracle图形安装界面,安装oracle软件</h2><h3 id="3-3-1-取消登录账号"><a href="#3-3-1-取消登录账号" class="headerlink" title="3.3.1 取消登录账号"></a>3.3.1 取消登录账号</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall1.png" style="zoom:35% ;" />
 
-<h3 id="3-3-2"><a href="#3-3-2" class="headerlink" title="3.3.2"></a>3.3.2</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall2.png" style="zoom:35% ;" />
+<h3 id="3-3-2-确认取消登录账号"><a href="#3-3-2-确认取消登录账号" class="headerlink" title="3.3.2 确认取消登录账号"></a>3.3.2 确认取消登录账号</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall2.png" style="zoom:35% ;" />
 
 <h3 id="3-3-3-跳过软件升级"><a href="#3-3-3-跳过软件升级" class="headerlink" title="3.3.3 跳过软件升级"></a>3.3.3 跳过软件升级</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall3.png" style="zoom:35% ;" />
 
-<h3 id="3-3-4"><a href="#3-3-4" class="headerlink" title="3.3.4"></a>3.3.4</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall4.png" style="zoom:35% ;" />
+<h3 id="3-3-4-Installtion-Option"><a href="#3-3-4-Installtion-Option" class="headerlink" title="3.3.4 Installtion Option"></a>3.3.4 Installtion Option</h3><p>选择“Install database software only”，只安装数据库软件，点击Next继续<br>第一项为安装数据库软件并创建一个数据库实例<br>第二项为只安装数据库软件<br>第三项为升级已经存在的数据库<br>选择第二项，可以在安装数据库软件后，手工通过dbca来创建实例。</p>
+<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall4.png" style="zoom:35% ;" />
 
-<h3 id="3-3-5"><a href="#3-3-5" class="headerlink" title="3.3.5"></a>3.3.5</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall5.png" style="zoom:35% ;" />
+<h3 id="3-3-5-Grid-Options"><a href="#3-3-5-Grid-Options" class="headerlink" title="3.3.5 Grid Options"></a>3.3.5 Grid Options</h3><p>选择第一项点击Next继续。对于单节点的数据库选择“Single instance database installation”进行安装，如果是安装集群数据库则要选择“Real Application Clusters database installation”这个选项进行安装。</p>
+<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall5.png" style="zoom:35% ;" />
 
-<h3 id="3-3-6"><a href="#3-3-6" class="headerlink" title="3.3.6"></a>3.3.6</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall6.png" style="zoom:35% ;" />
+<h3 id="3-3-6-Product-Languages"><a href="#3-3-6-Product-Languages" class="headerlink" title="3.3.6 Product Languages"></a>3.3.6 Product Languages</h3><p>这个界面上选择支持的语言，在左面列表里面选择“Simplified Chinese”，添加到右面列表，点击Next继续</p>
+<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall6.png" style="zoom:35% ;" />
 
-<h3 id="3-3-7"><a href="#3-3-7" class="headerlink" title="3.3.7"></a>3.3.7</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall7.png" style="zoom:35% ;" />
+<h3 id="3-3-7-Database-Edition"><a href="#3-3-7-Database-Edition" class="headerlink" title="3.3.7 Database Edition"></a>3.3.7 Database Edition</h3><p>这个界面选择oracle的版本，选择第一项“Enterprise Edition”企业版，点击Next继续。<br>Standard版（标准版）的oracle有很多功能上的限制，生产系统上务必选择Enterprise Edition（企业版）。</p>
+<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall7.png" style="zoom:35% ;" />
 
-<h3 id="3-3-8"><a href="#3-3-8" class="headerlink" title="3.3.8"></a>3.3.8</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall8.png" style="zoom:35% ;" />
+<h3 id="3-3-8-Installation-Location"><a href="#3-3-8-Installation-Location" class="headerlink" title="3.3.8 Installation Location"></a>3.3.8 Installation Location</h3><p>选择安装位置，配置好oracle用户的.bash_profile文件后，安装程序会自动把ORACLE_BASE变量作为Oracle Base，软件安装目录Software Location取的是ORACLE_HOME变量。不用修改，直接在界面点击Next继续</p>
+<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall8.png" style="zoom:35% ;" />
 
-<h3 id="3-3-9"><a href="#3-3-9" class="headerlink" title="3.3.9"></a>3.3.9</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall9.png" style="zoom:35% ;" />
+<h3 id="3-3-9-Create-Inventory"><a href="#3-3-9-Create-Inventory" class="headerlink" title="3.3.9 Create Inventory"></a>3.3.9 Create Inventory</h3><p>选择Inventory的位置，保持默认，点击Next继续。这个位置是在ORACLE_BASE下创建oraInventory目录，用于注册ORACLE_HOME下安装的数据库的组件及其版本，存放oracle软件安装的目录信息。oracle数据库软件的升级、增删组件，都需要用到inventory。oracle OUI会创建一个有oraInst.ora文件指定的全局inventory。</p>
+<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall9.png" style="zoom:35% ;" />
 
-<h3 id="3-3-10"><a href="#3-3-10" class="headerlink" title="3.3.10"></a>3.3.10</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall10.png" style="zoom:35% ;" />
+<h3 id="3-3-10-Operating-System-Groups"><a href="#3-3-10-Operating-System-Groups" class="headerlink" title="3.3.10 Operating System Groups"></a>3.3.10 Operating System Groups</h3><p>选择oralce使用的操作系统用户组，保持默认，点击Next继续</p>
+<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall10.png" style="zoom:35% ;" />
 
-<h3 id="3-3-11"><a href="#3-3-11" class="headerlink" title="3.3.11"></a>3.3.11</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall11.png" style="zoom:35% ;" />
+<h3 id="3-3-11-Prerequiste-Checks"><a href="#3-3-11-Prerequiste-Checks" class="headerlink" title="3.3.11 Prerequiste Checks"></a>3.3.11 Prerequiste Checks</h3><p>Oracle安装程序用检查系统参数，以确定是否满足了安装oracle的前提条件，包括系统内核、虚拟内存和软件包等。安装3.3章节介绍的方法把包安装好之后，由于操作系统的包版本过高，会导致oracle提示如下包缺失，实际上已经安装好了。勾选右上角的“Ignore All”复选框，点击Next继续：</p>
+<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall11.png" style="zoom:35% ;" />
 
-<h3 id="3-3-12"><a href="#3-3-12" class="headerlink" title="3.3.12"></a>3.3.12</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall2.png" style="zoom:35% ;" />
+<h3 id="3-3-12-Install-Product"><a href="#3-3-12-Install-Product" class="headerlink" title="3.3.12 Install Product"></a>3.3.12 Install Product</h3><p>Oracle开始按照前面步骤的设定，开始安装：</p>
+<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall13.png" style="zoom:35% ;" />
 
-<h3 id="3-3-13"><a href="#3-3-13" class="headerlink" title="3.3.13"></a>3.3.13</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall13.png" style="zoom:35% ;" />
+<h3 id="3-3-13-Finish"><a href="#3-3-13-Finish" class="headerlink" title="3.3.13 Finish"></a>3.3.13 Finish</h3><p>使用root用户执行系统提示的2个脚本，完成安装：<br>/oracle /oraInventory/orainstRoot.sh<br>/oracle/app/oracle/product/11.2.0/dbhome_1/root.sh</p>
+<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall14.png" style="zoom:35% ;" />
 
-<h3 id="3-3-14"><a href="#3-3-14" class="headerlink" title="3.3.14"></a>3.3.14</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall14.png" style="zoom:35% ;" />
+<p>对于脚本中的提示，直接回车确认即可，执行完毕后，点击OK安装过程就完成了。</p>
+<h3 id="3-3-14-数据库软件成功安装"><a href="#3-3-14-数据库软件成功安装" class="headerlink" title="3.3.14 数据库软件成功安装"></a>3.3.14 数据库软件成功安装</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall15.png" style="zoom:35% ;" />
 
-<h3 id="3-3-15"><a href="#3-3-15" class="headerlink" title="3.3.15"></a>3.3.15</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall15.png" style="zoom:35% ;" />
-
-
-<h2 id="3-4-创建oracle监听"><a href="#3-4-创建oracle监听" class="headerlink" title="3.4 创建oracle监听"></a>3.4 创建oracle监听</h2><h3 id="3-4-1-进入创建oracle监听图形界面"><a href="#3-4-1-进入创建oracle监听图形界面" class="headerlink" title="3.4.1 进入创建oracle监听图形界面"></a>3.4.1 进入创建oracle监听图形界面</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">oracle用户下输入如下命令：</span><br><span class="line">netca</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-4-2"><a href="#3-4-2" class="headerlink" title="3.4.2"></a>3.4.2</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca1.png" style="zoom:35% ;" />
-
-<h3 id="3-4-3"><a href="#3-4-3" class="headerlink" title="3.4.3"></a>3.4.3</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca2.png" style="zoom:35% ;" />
-
-<h3 id="3-4-4"><a href="#3-4-4" class="headerlink" title="3.4.4"></a>3.4.4</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca3.png" style="zoom:35% ;" />
-
-<h3 id="3-4-5"><a href="#3-4-5" class="headerlink" title="3.4.5"></a>3.4.5</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca4.png" style="zoom:35% ;" />
-
-<h3 id="3-4-6"><a href="#3-4-6" class="headerlink" title="3.4.6"></a>3.4.6</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca5.png" style="zoom:35% ;" />
-
-<h3 id="3-4-7"><a href="#3-4-7" class="headerlink" title="3.4.7"></a>3.4.7</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca6.png" style="zoom:35% ;" />
-
-<h3 id="3-4-8"><a href="#3-4-8" class="headerlink" title="3.4.8"></a>3.4.8</h3><img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca7.png" style="zoom:35% ;" />
-
-
-
-
+<p>至此：Oracle 11gR2 软件安装完毕！</p>
 
     </div>
 
@@ -321,7 +309,10 @@
     <a href="/kubernetes/%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2kubernetes%EF%BC%88kubeadm%EF%BC%89/" rel="prev" title="离线部署kubernetes（kubeadm）">
       <i class="fa fa-chevron-left"></i> 离线部署kubernetes（kubeadm）
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/oracle/rhel6%E5%AE%89%E8%A3%85oracle11gr2%E4%B9%8B%E4%BA%8C%EF%BC%9A%E5%88%9B%E5%BB%BA%E7%9B%91%E5%90%AC/" rel="next" title="rhel6安装oracle11gr2之二：创建监听">
+      rhel6安装oracle11gr2之二：创建监听 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -380,7 +371,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85%E5%9F%BA%E7%A1%80%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">一、安装基础依赖包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%B3%BB%E7%BB%9F%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">二、系统参数配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E7%B3%BB%E7%BB%9F%E8%AF%AD%E8%A8%80"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 系统语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0%E8%B0%83%E4%BC%98"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 内核参数调优</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%88%9B%E5%BB%BAoracle%E7%94%A8%E6%88%B7%E4%B8%8E%E7%BB%84"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 创建oracle用户与组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E9%85%8D%E7%BD%AE-etc-hosts%E6%96%87%E4%BB%B6"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 配置&#x2F;etc&#x2F;hosts文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-%E5%88%9B%E5%BB%BAoracle%E5%AE%89%E8%A3%85%E7%9B%AE%E5%BD%95"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 创建oracle安装目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-%E8%AE%BE%E7%BD%AEoracle%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 设置oracle用户环境变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81oracle%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">三、oracle安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E8%A7%A3%E5%8E%8Boracle%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 解压oracle软件包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E6%89%A7%E8%A1%8C%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 执行安装命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E8%BF%9B%E5%85%A5oracle%E5%9B%BE%E5%BD%A2%E5%AE%89%E8%A3%85%E7%95%8C%E9%9D%A2-%E5%AE%89%E8%A3%85oracle%E8%BD%AF%E4%BB%B6"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 进入oracle图形安装界面,安装oracle软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-1-%E5%8F%96%E6%B6%88%E5%8B%BE%E9%80%89%E8%BD%AF%E4%BB%B6%E5%8D%87%E7%BA%A7"><span class="nav-number">3.3.1.</span> <span class="nav-text">3.3.1 取消勾选软件升级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-2"><span class="nav-number">3.3.2.</span> <span class="nav-text">3.3.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-3-%E8%B7%B3%E8%BF%87%E8%BD%AF%E4%BB%B6%E5%8D%87%E7%BA%A7"><span class="nav-number">3.3.3.</span> <span class="nav-text">3.3.3 跳过软件升级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-4"><span class="nav-number">3.3.4.</span> <span class="nav-text">3.3.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-5"><span class="nav-number">3.3.5.</span> <span class="nav-text">3.3.5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-6"><span class="nav-number">3.3.6.</span> <span class="nav-text">3.3.6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-7"><span class="nav-number">3.3.7.</span> <span class="nav-text">3.3.7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-8"><span class="nav-number">3.3.8.</span> <span class="nav-text">3.3.8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-9"><span class="nav-number">3.3.9.</span> <span class="nav-text">3.3.9</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-10"><span class="nav-number">3.3.10.</span> <span class="nav-text">3.3.10</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-11"><span class="nav-number">3.3.11.</span> <span class="nav-text">3.3.11</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-12"><span class="nav-number">3.3.12.</span> <span class="nav-text">3.3.12</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-13"><span class="nav-number">3.3.13.</span> <span class="nav-text">3.3.13</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-14"><span class="nav-number">3.3.14.</span> <span class="nav-text">3.3.14</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-15"><span class="nav-number">3.3.15.</span> <span class="nav-text">3.3.15</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-%E5%88%9B%E5%BB%BAoracle%E7%9B%91%E5%90%AC"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 创建oracle监听</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-1-%E8%BF%9B%E5%85%A5%E5%88%9B%E5%BB%BAoracle%E7%9B%91%E5%90%AC%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2"><span class="nav-number">3.4.1.</span> <span class="nav-text">3.4.1 进入创建oracle监听图形界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-2"><span class="nav-number">3.4.2.</span> <span class="nav-text">3.4.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-3"><span class="nav-number">3.4.3.</span> <span class="nav-text">3.4.3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-4"><span class="nav-number">3.4.4.</span> <span class="nav-text">3.4.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-5"><span class="nav-number">3.4.5.</span> <span class="nav-text">3.4.5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-6"><span class="nav-number">3.4.6.</span> <span class="nav-text">3.4.6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-7"><span class="nav-number">3.4.7.</span> <span class="nav-text">3.4.7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-8"><span class="nav-number">3.4.8.</span> <span class="nav-text">3.4.8</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85%E5%9F%BA%E7%A1%80%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">一、安装基础依赖包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%B3%BB%E7%BB%9F%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">二、系统参数配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E7%B3%BB%E7%BB%9F%E8%AF%AD%E8%A8%80"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 系统语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0%E8%B0%83%E4%BC%98"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 内核参数调优</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%88%9B%E5%BB%BAoracle%E7%94%A8%E6%88%B7%E4%B8%8E%E7%BB%84"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 创建oracle用户与组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E9%85%8D%E7%BD%AE-etc-hosts%E6%96%87%E4%BB%B6"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 配置&#x2F;etc&#x2F;hosts文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-%E5%88%9B%E5%BB%BAoracle%E5%AE%89%E8%A3%85%E7%9B%AE%E5%BD%95"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 创建oracle安装目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-%E8%AE%BE%E7%BD%AEoracle%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 设置oracle用户环境变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81oracle%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">三、oracle安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E8%A7%A3%E5%8E%8Boracle%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 解压oracle软件包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E6%89%A7%E8%A1%8C%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 执行安装命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E8%BF%9B%E5%85%A5oracle%E5%9B%BE%E5%BD%A2%E5%AE%89%E8%A3%85%E7%95%8C%E9%9D%A2-%E5%AE%89%E8%A3%85oracle%E8%BD%AF%E4%BB%B6"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 进入oracle图形安装界面,安装oracle软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-1-%E5%8F%96%E6%B6%88%E7%99%BB%E5%BD%95%E8%B4%A6%E5%8F%B7"><span class="nav-number">3.3.1.</span> <span class="nav-text">3.3.1 取消登录账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-2-%E7%A1%AE%E8%AE%A4%E5%8F%96%E6%B6%88%E7%99%BB%E5%BD%95%E8%B4%A6%E5%8F%B7"><span class="nav-number">3.3.2.</span> <span class="nav-text">3.3.2 确认取消登录账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-3-%E8%B7%B3%E8%BF%87%E8%BD%AF%E4%BB%B6%E5%8D%87%E7%BA%A7"><span class="nav-number">3.3.3.</span> <span class="nav-text">3.3.3 跳过软件升级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-4-Installtion-Option"><span class="nav-number">3.3.4.</span> <span class="nav-text">3.3.4 Installtion Option</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-5-Grid-Options"><span class="nav-number">3.3.5.</span> <span class="nav-text">3.3.5 Grid Options</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-6-Product-Languages"><span class="nav-number">3.3.6.</span> <span class="nav-text">3.3.6 Product Languages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-7-Database-Edition"><span class="nav-number">3.3.7.</span> <span class="nav-text">3.3.7 Database Edition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-8-Installation-Location"><span class="nav-number">3.3.8.</span> <span class="nav-text">3.3.8 Installation Location</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-9-Create-Inventory"><span class="nav-number">3.3.9.</span> <span class="nav-text">3.3.9 Create Inventory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-10-Operating-System-Groups"><span class="nav-number">3.3.10.</span> <span class="nav-text">3.3.10 Operating System Groups</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-11-Prerequiste-Checks"><span class="nav-number">3.3.11.</span> <span class="nav-text">3.3.11 Prerequiste Checks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-12-Install-Product"><span class="nav-number">3.3.12.</span> <span class="nav-text">3.3.12 Install Product</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-13-Finish"><span class="nav-number">3.3.13.</span> <span class="nav-text">3.3.13 Finish</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-14-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BD%AF%E4%BB%B6%E6%88%90%E5%8A%9F%E5%AE%89%E8%A3%85"><span class="nav-number">3.3.14.</span> <span class="nav-text">3.3.14 数据库软件成功安装</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -396,7 +387,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -438,7 +429,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
