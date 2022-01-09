@@ -1,5 +1,5 @@
 ---
-title: rhel6 安装 oracle 11g r2
+title: rhel6安装oracle11gr2之一：安装
 date: 2021-12-08 22:26:13
 categories: oracle
 tags:
@@ -157,79 +157,78 @@ unzip oracle_database_linux32.zip
 ```
 ## 3.3 进入oracle图形安装界面,安装oracle软件
 
-### 3.3.1 取消勾选软件升级
+### 3.3.1 取消登录账号
 <img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall1.png" style="zoom:35% ;" />
 
-### 3.3.2 
+### 3.3.2 确认取消登录账号
 <img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall2.png" style="zoom:35% ;" />
 
 ### 3.3.3 跳过软件升级
 <img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall3.png" style="zoom:35% ;" />
 
-### 3.3.4
+### 3.3.4 Installtion Option
+选择“Install database software only”，只安装数据库软件，点击Next继续
+第一项为安装数据库软件并创建一个数据库实例
+第二项为只安装数据库软件
+第三项为升级已经存在的数据库
+选择第二项，可以在安装数据库软件后，手工通过dbca来创建实例。
+
 <img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall4.png" style="zoom:35% ;" />
 
-### 3.3.5
+### 3.3.5 Grid Options
+选择第一项点击Next继续。对于单节点的数据库选择“Single instance database installation”进行安装，如果是安装集群数据库则要选择“Real Application Clusters database installation”这个选项进行安装。
+
 <img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall5.png" style="zoom:35% ;" />
 
-### 3.3.6
+### 3.3.6 Product Languages
+这个界面上选择支持的语言，在左面列表里面选择“Simplified Chinese”，添加到右面列表，点击Next继续
+
 <img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall6.png" style="zoom:35% ;" />
 
-### 3.3.7
+### 3.3.7 Database Edition
+这个界面选择oracle的版本，选择第一项“Enterprise Edition”企业版，点击Next继续。
+Standard版（标准版）的oracle有很多功能上的限制，生产系统上务必选择Enterprise Edition（企业版）。
+
 <img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall7.png" style="zoom:35% ;" />
 
-### 3.3.8
+### 3.3.8 Installation Location
+选择安装位置，配置好oracle用户的.bash_profile文件后，安装程序会自动把ORACLE_BASE变量作为Oracle Base，软件安装目录Software Location取的是ORACLE_HOME变量。不用修改，直接在界面点击Next继续
+
 <img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall8.png" style="zoom:35% ;" />
 
-### 3.3.9
+### 3.3.9 Create Inventory
+选择Inventory的位置，保持默认，点击Next继续。这个位置是在ORACLE_BASE下创建oraInventory目录，用于注册ORACLE_HOME下安装的数据库的组件及其版本，存放oracle软件安装的目录信息。oracle数据库软件的升级、增删组件，都需要用到inventory。oracle OUI会创建一个有oraInst.ora文件指定的全局inventory。
+
 <img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall9.png" style="zoom:35% ;" />
 
-### 3.3.10
+### 3.3.10 Operating System Groups
+选择oralce使用的操作系统用户组，保持默认，点击Next继续
+
 <img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall10.png" style="zoom:35% ;" />
 
-### 3.3.11
+### 3.3.11 Prerequiste Checks
+Oracle安装程序用检查系统参数，以确定是否满足了安装oracle的前提条件，包括系统内核、虚拟内存和软件包等。安装3.3章节介绍的方法把包安装好之后，由于操作系统的包版本过高，会导致oracle提示如下包缺失，实际上已经安装好了。勾选右上角的“Ignore All”复选框，点击Next继续：
+
 <img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall11.png" style="zoom:35% ;" />
 
-### 3.3.12
-<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall2.png" style="zoom:35% ;" />
+### 3.3.12 Install Product
+Oracle开始按照前面步骤的设定，开始安装：
 
-### 3.3.13
 <img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall13.png" style="zoom:35% ;" />
 
-### 3.3.14
+### 3.3.13 Finish
+使用root用户执行系统提示的2个脚本，完成安装：
+/oracle /oraInventory/orainstRoot.sh
+/oracle/app/oracle/product/11.2.0/dbhome_1/root.sh
+
 <img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall14.png" style="zoom:35% ;" />
 
-### 3.3.15
+对于脚本中的提示，直接回车确认即可，执行完毕后，点击OK安装过程就完成了。
+
+### 3.3.14 数据库软件成功安装
 <img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oracleinstall15.png" style="zoom:35% ;" />
 
-
-## 3.4 创建oracle监听
-### 3.4.1 进入创建oracle监听图形界面
-```
-oracle用户下输入如下命令：
-netca
-```
-
-### 3.4.2
-<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca1.png" style="zoom:35% ;" />
-
-### 3.4.3
-<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca2.png" style="zoom:35% ;" />
-
-### 3.4.4
-<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca3.png" style="zoom:35% ;" />
-
-### 3.4.5
-<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca4.png" style="zoom:35% ;" />
-
-### 3.4.6
-<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca5.png" style="zoom:35% ;" />
-
-### 3.4.7
-<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca6.png" style="zoom:35% ;" />
-
-### 3.4.8
-<img src="https://rainmi.coding.net/p/CODING-Pages-1306006895/d/images/git/raw/master/oraclenetca7.png" style="zoom:35% ;" />
+至此：Oracle 11gR2 软件安装完毕！
 
 
 

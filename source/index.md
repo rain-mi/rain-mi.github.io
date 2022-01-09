@@ -14,4 +14,5 @@ title: 欢迎访问
 6.1 {% post_link SRS流媒体之一：单节点部署 %}
 6.2 {% post_link SRS流媒体之二：SRS-Cluster %}
 7 {% post_link 离线部署kubernetes（kubeadm） %}
-8.1 {% post_link rhel6 安装 oracle 11g r2 %}
+8.1 {% post_link rhel6安装oracle11gr2之一：安装 %}
+8.2 {% post_link rhel6安装oracle11gr2之二：创建监听 %}
