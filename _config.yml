@@ -106,5 +106,4 @@ deploy:
   type: git
   repo: 
     github: git@github.com:rain-mi/rain-mi.github.io.git,master
-    coding: git@e.coding.net:rainmi/CODING-Pages-1306006895/CODING-Pages-rain-mi.git,master
   #branch: master
