@@ -1,11 +1,11 @@
 ---
-title: SRS流媒体之二：SRS-Cluster
+title: SRS流媒体之二：SRS Cluster
 date: 2021-06-09 22:03:34
 categories: srs
 tags:
 ---
 ## 一、简介
-### 开源流媒体服务器SRS - Cluster集群
+### 开源流媒体服务器SRS Cluster集群
 单台服务器做直播，总归有单点风险，利用SRS的Forward机制 + Edge Server设计，搭建一个大规模的高可用集群。
 
 源站服务器集群：origin server cluster，可以借助forward机制，仅用少量的服务器，专用于处理推流请求。 
@@ -232,7 +232,6 @@ ffmpeg -re -i /package/qryt.flv -vcodec copy -acodec copy -f flv -y rtmp://172.1
 ```
 注：新增一个upstream用于指定要转发的edge服务器节点，然后在location ~ /* 这里proxy_pass 指定upstream的名字（location ~ /* 切记要写在 location / 前面）
 这样配置后，访问 http://nginx_server_ip/live/qryt.flv 理论上就能转到后端的edge服务器。实测：浏览器会提示下载视频，可用VCL观看视频
-
 
 
 
