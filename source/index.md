@@ -18,3 +18,4 @@ title: 欢迎访问
 8.2 {% post_link rhel6安装oracle11gr2之二：创建监听 %}
 9.1 {% post_link 'clickhouse用户' %}
 9.2 {% post_link 'clickhouse cluster部署' %}
+10 {% post_link 'Centos7杀毒软件ClamAV' %}
